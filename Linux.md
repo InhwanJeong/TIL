@@ -27,7 +27,7 @@ ls -al :
 
 1.mkdir 폴더명  : 현재 폴더에서 폴더 생성
 
-2.rmdir 폴더명  : 현재 폴더에서 폴더 삭제
+2.rmdir 폴더명  : 현재 폴더에서 폴더 삭제        
 2-1.rm - rf 폴더명 : 폴더 삭제
 
 3.mv 폴더명 위치 : 폴더 이동
@@ -36,14 +36,14 @@ ls -al :
 
 ## 파일 생성 삭제
 
-1-1.touch 파일명 : 현재 폴더에 파일생성
-1-2.cat>파일명   : 현재 폴더에 파일생성과 동시에 내용물 초기화
-1-3.vi 파일명    : visual display editor을 실행 시키며 내용물을 작성,수정을 할 수 있다.
-1-4.gedit 파일명 : GUI 형태의 파일 생성
+1-1.touch 파일명 : 현재 폴더에 파일생성     
+1-2.cat>파일명   : 현재 폴더에 파일생성과 동시에 내용물 초기화        
+1-3.vi 파일명    : visual display editor을 실행 시키며 내용물을 작성,수정을 할 수 있다.       
+1-4.gedit 파일명 : GUI 형태의 파일 생성       
 
--gedit test.c
--gcc -o test test.c
--./test
+-gedit test.c       
+-gcc -o test test.c     
+-./test     
 
 2.rm 파일명 : 현재 폴더에 파일 삭제
 
