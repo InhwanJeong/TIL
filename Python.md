@@ -169,5 +169,51 @@ abs(-3) -> 3  abs(3)  -> 3
 17.open(filename,"mode") : w : 쓰기모드 r : 읽기모드 a: 추가모드 b: 바이너리 모드
 
 
+### 파일과 예외
+- 파일 처리 기본 : 
+```python
+import os
+os.getcwd() # 현재 디렉터리의 위치를 나타냄
+
+data = open('sketch.txt')  # 파일을 열고 data라는 객체에 대입
+print(data.readline(), end = '') # 파일을 한 라인을 읽는다. 한번 더 읽는다면 두번째 줄 출력
+
+data.tell() # 현재위치를 알려줌
+data.seek(0) # 파일의 위치를 이동 0은 처음 위치로 이동
+
+for each_line in data:
+    print(each_line, end = '')   # 모든 데이터가 출력
+    
+data.close()    #파일 종료
+```
+        
+        
+- Split() 함수 추가 -> 다중대입
+```python
+data = open('sketch.txt') 
+for each_line in data:
+    if not each_line.find(':') == -1:   # :가 없다면 아래 문장을 실행하지 않습니다.
+        (role, line_spoken) = each_line.split(':', 1) # ':'을 기준으로 왼쪽은 role, 오른쪽은 line 객채로 들어간다.
+        print(role, end = '')                         #  : 뒤에 1은 최대 나뉘는 개수를 의미한다.
+        print(' said: ', end = '')
+        print(line_spoken, end = '')
+```    
+
+
+- 예외처리 메커니즘 : try/except try : 예외가 발생 할 수 있는 코드, except : 에러 복구 코드
+```python
+try:
+    data = open('sketch.txt') 
+    for each_line in data:
+        try:
+            (role, line_spoken) = each_line.split(':', 1)
+            print(role, end = '')                         
+            print(' said: ', end = '')
+            print(line_spoken, end = '')
+        except:
+            pass
+except:
+    print('The data File is missing')
+```    
 
 
