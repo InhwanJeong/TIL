@@ -1,6 +1,8 @@
 Web Programming
 ==============================
 
+Web IDE : Atom(아톰) + emmet(아톰 내부에서 설치)
+-------------
 ## 0.개요
 
 - 기획 -> 디자인 = 개발 -> 테스트
@@ -94,9 +96,41 @@ $ bitnami
 ```
 
 
+## css(Cascading Style Sheets)
+- HTML과 함께 쓰인다. (HTML을 꾸며주기 위해 만들어진 언어)
+- 문법 : 선택자(selector) + 서술(description)
+- 예(HTML의 style 태그안에 들어간다)
+```
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style media="screen">
+          h1{color:red; font-size: 100px}
+          h2{text-decoration: underline;}
+          header h1{border: 10px solid red;}
+          #selected{
+        border: 1px red solid;
+      }
+    </style>
+    <title>이난's 홈페이지</title>
+  </head>
+  <body>
+  <header>
+    <h1>CSS</h1>
+  </header>
+    <h1>PHP</h1>
+    <h2 id = "selected">JavaSscripts</h2>
+    <h3>HTML</h3>
+  </body>
+</html>
+```
 
-
-
+#### 박스 모델
+- margin : 
+- border :
+- padding : 
+- width, height :
 ## PHP(Hypertext Preprocessor
 
 - 프로그래밍 언어의 일종으로 동적 웹 페이지를 만들기 위해 설계되었음
