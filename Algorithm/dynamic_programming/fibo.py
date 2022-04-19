@@ -4,8 +4,8 @@ def fib_naive(n):
     elif n == 1:
         return 1
     else:
-        fib_naive(n) = fib_naive(n-1) + fib_naive(n+2)
-
+        fib = fib_naive(n-1) + fib_naive(n-2)
+        return fib
 
 # top-down
 # recursive, stack 제한이 있음
@@ -18,3 +18,7 @@ def fib_dp(n):
         return 1
 
     fib_array = [0, 1]
+
+
+if __name__ == '__main__':
+    print(fib_naive(35))
