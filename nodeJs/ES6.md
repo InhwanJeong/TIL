@@ -110,3 +110,62 @@ let greeting = `Hi ${firstName}, ${lastName}`;
 console.log(greeting); // Hi John, Doe
 
 ```
+
+- 객체 리터럴
+  - 객체 초기화 단순화
+  ```javascript
+  // 기존 자바 스크립트
+  function createMachine(name, status) {
+      return {
+          name: name,
+          status: status
+      };
+  }
+  
+  // ES6 적용(value값 생략 가능; 자동 key,value 생성)
+  function createMachine(name, status) {
+      return {
+          name,
+          status
+      };
+  }
+  ```
+  - 프로퍼티 이름 자동 계산
+  ```javascript
+  let name = 'machine name';
+  let machine = {
+      [name]: 'server',
+      'machine hours': 10000
+  };
+  
+  console.log(machine[name]); // server
+  console.log(machine['machine hours']); // 10000
+  
+  let prefix = 'machine';
+  let machine = {
+      [prefix + ' name']: 'server',
+      [prefix + ' hours']: 10000
+  };
+  
+  console.log(machine['machine name']); // server
+  console.log(machine['machine hours']); // 10000
+  ```
+  - 간결한 메소드 구문
+  ```javascript
+  // 기존 javascript
+  let server = {
+      name: "Server",
+      restart: function () {
+          console.log("The" + this.name + " is restarting...");
+      }
+  };
+  
+  // ES6 문법 적용
+  let server = {
+      name: 'Server',
+      restart() {
+          console.log("The" + this.name + " is restarting...");
+      }
+  };
+  ```
+  
