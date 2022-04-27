@@ -171,6 +171,16 @@ console.log(greeting); // Hi John, Doe
 
 ## 2. 배열, 객체 비구조화(Destructuring)
 - 배열 비 구조화
+  - 변수 교환(swap)
+  ```javascript
+  let a = 10, 
+      b = 20;
+  
+  [a, b] = [b, a];
+  
+  console.log(a); // 20
+  console.log(b); // 10
+  ```
 ```javascript
 function getScores() {
    return [70, 80, 90];
@@ -216,26 +226,39 @@ let [
 
 console.log(color1, color2, color3); // Red Green Blue
 ```
-- 변수 교환(swap)
-```javascript
-let a = 10, 
-    b = 20;
 
-[a, b] = [b, a];
-
-console.log(a); // 20
-console.log(b); // 10
-```
 
 - 객체 비 구조화
+  ```javascript
+  let person = {
+      firstName: 'John',
+      lastName: 'Doe'
+  };
+  
+  let { firstName, lastName } = person;
+  
+  console.log(firstName); // 'John'
+  console.log(lastName); // 'Doe'
+  ```
+
+## 3. 모듈
+- ES6 모듈은 자동으로 Export 하지 않습니다. 반드시 export를 명시해주어야 사용이 가능합니다.
 ```javascript
-let person = {
-    firstName: 'John',
-    lastName: 'Doe'
-};
+// file1.js
+export let message = 'ES6 Modules';
 
-let { firstName, lastName } = person;
+// file2.js
+import { message } from './message.js'
 
-console.log(firstName); // 'John'
-console.log(lastName); // 'Doe'
+const h1 = document.createElement('h1');
+h1.textContent = message
+
+document.body.appendChild(h1)
+```
+- ES6의 모듈 추가의 가장 큰 의의는 파일 단위가 아닌 객체, 함수 단위의 사용을 위함
+
+## 4. 클래스
+```javascript
+
+
 ```
