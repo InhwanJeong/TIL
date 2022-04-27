@@ -168,4 +168,74 @@ console.log(greeting); // Hi John, Doe
       }
   };
   ```
-  
+
+## 2. 배열, 객체 비구조화(Destructuring)
+- 배열 비 구조화
+```javascript
+function getScores() {
+   return [70, 80, 90];
+}
+
+// 기존 javascript
+let scores = getScores();
+
+let x = scores[0], 
+    y = scores[1], 
+    z = scores[2];
+
+// ES6 문법 적용
+let [x, y, z] = getScores();
+
+console.log(x); // 70
+console.log(y); // 80
+console.log(z); // 90
+
+let a, b;
+[a, b] = [10, 20];
+console.log(a); // 10
+console.log(b); // 20
+
+// 중첩 배열 비구조화
+function getProfile() {
+    return [
+        'John',
+        'Doe',
+        ['Red', 'Green', 'Blue']
+    ];
+}
+
+let [
+    firstName,
+    lastName,
+    [
+        color1,
+        color2,
+        color3
+    ]
+] = getProfile();
+
+console.log(color1, color2, color3); // Red Green Blue
+```
+- 변수 교환(swap)
+```javascript
+let a = 10, 
+    b = 20;
+
+[a, b] = [b, a];
+
+console.log(a); // 20
+console.log(b); // 10
+```
+
+- 객체 비 구조화
+```javascript
+let person = {
+    firstName: 'John',
+    lastName: 'Doe'
+};
+
+let { firstName, lastName } = person;
+
+console.log(firstName); // 'John'
+console.log(lastName); // 'Doe'
+```
