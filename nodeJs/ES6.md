@@ -258,7 +258,173 @@ document.body.appendChild(h1)
 - ES6의 모듈 추가의 가장 큰 의의는 파일 단위가 아닌 객체, 함수 단위의 사용을 위함
 
 ## 4. 클래스
+- 클래스는 object를 만들기 위한 청사진이다.
+- 데이터화 함수를 캡슐화한다.
+
 ```javascript
+// javascript, 클래스 개념이 없었음
+function Person(name) {
+    this.name = name;
+}
+
+Person.prototype.getName = function () {
+    return this.name;
+};
+
+var john = new Person("John Doe");
+console.log(john.getName());
+
+// ES6
+class Person {
+    constructor(name) {
+        this.name = name;
+    }
+    getName() {
+        return this.name;
+    }
+}
+
+// 선언 *new*
+let john = new Person("John Doe");
+// let john = Person("John Doe");
+// Uncaught TypeError: Class constructor Person cannot be invoked without 'new'
+
+
+// 사용
+let name = john.getName();
+console.log(name); // "John Doe"
+
+console.log(typeof Person); // function
+console.log(john instanceof Person); // true
+console.log(john instanceof Object); // true
+```
+
+## 5. 화살표 함수
+- 화살표 함수는 함수표현식에 비해 더 짧은 구문으로 작성하기 위해 고안되었음
+- 선언 및 호출
+```javascript
+// 매개변수 지정 방법
+    () => { ... } // 매개변수가 없을 경우
+     x => { ... } // 매개변수가 한 개인 경우, 소괄호를 생략할 수 있다.
+(x, y) => { ... } // 매개변수가 여러 개인 경우, 소괄호를 생략할 수 없다.
+
+// 함수 몸체 지정 방법
+x => { return x * x }  // single line block
+x => x * x             // 함수 몸체가 한줄의 구문이라면 중괄호를 생략할 수 있으며 암묵적으로 return된다. 위 표현과 동일하다.
+() => {           // multi line block.
+  const x = 10;
+  return x * x;
+};
+
+() => { return { a: 1 }; }
+() => ({ a: 1 })  // 위 표현과 동일하다. 객체 반환시 소괄호를 사용한다.
 
 
 ```
+
+```javascript
+// 기존함수
+let add = function (x, y) {
+	return x + y;
+};
+
+console.log(add(10, 20)); // 30
+
+// 화살표 함수
+let add = (x, y) => x + y;
+
+console.log(add(10, 20)); // 30;
+
+// {}를 사용하고싶다면 return을 반드시 붙여줘야함.
+let add = (x, y) => { return x + y; };
+
+
+```
+
+### 화살표 함수를 사용하면 안될때
+- 객체 메소드
+```javascript
+// 화살표 함수
+const counter = {
+  count: 0,
+  next: () => ++this.count,
+  current: () => this.count
+};
+
+console.log(counter.next()); // NaN
+
+// 객체 리터럴
+const counter = {
+    count: 0,
+    next() {
+        return ++this.count;
+    },
+    current() {
+        return this.count;
+    }
+};
+
+console.log(counter.next()); // 1
+```
+- Prototype methods
+```javascript
+// 화살표함수, 전ㄴ역 객체를 참조 하기때문에 사용금지
+function Counter() {
+    this.count = 0;
+}
+
+Counter.prototype.next = () => {
+    return this.count;
+};
+
+Counter.prototype.current = () => {
+    return ++this.next;
+}
+
+// Good
+function Counter() {
+    this.count = 0;
+}
+
+Counter.prototype.next = function () {
+    return this.count;
+};
+
+Counter.prototype.current = function () {
+    return ++this.next;
+}
+```
+- arguments를 사용하는 객체
+```javascript
+// bad
+const concat = (separator) => {
+    let args = Array.prototype.slice.call(arguments, 1);
+    return args.join(separator);
+}
+
+// good
+function concat(separator) {
+    let args = Array.prototype.slice.call(arguments, 1);
+    return args.join(separator);
+}
+```
+- 이벤트 핸들러
+```javascript
+// bad
+username.addEventListener('keyup', () => {
+  greeting.textContent = 'Hello ' + this.value;
+});
+-> Hello undefined
+
+// Good
+username.addEventListener('keyup', function () {
+    input.textContent = 'Hello ' + this.value;
+});
+```
+
+## 6. 프로미스
+- 프로미스란, 비동기 처리를 위한 패턴
+  - 자바스크립트는 비동기 처리를 위한 하나의 패턴으로 콜백 함수를 사용한다. 하지만 전통적인 콜백 패턴은 콜백 헬로 인해 가독성이 나쁘고 비동기 처리중 발생하는 에러 처리가 곤란하며 여러개의 비동기 처리를 한번에 처리하는 것에도 한계가 있다.
+  
+- 콜백 헬
+  - 
