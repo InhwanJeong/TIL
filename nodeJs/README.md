@@ -46,3 +46,21 @@ express --view=pug myapp
 cd myapp
 npm install
 ```
+
+### (2) 라우트
+- 익스프레스에서는 라우트와 미들웨어의 순서가 중요함
+
+```javascript
+app.get('/about*', (req,res) => {
+    // 콘텐츠
+})
+
+// 여기 아래는 위 라우트 때문에 실행되지 않음.
+app.get('/about/contact', (req,res) => {
+    // 콘텐츠
+})
+
+app.get('/about/directions', (req,res) => {
+    // 콘텐츠
+})
+```
