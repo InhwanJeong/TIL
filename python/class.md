@@ -1,3 +1,22 @@
+### 클래스 메소드(classmethod)
+- 클래스메소드를 사용하는 경우
+  - self인자를 사용하지 않는 클래스 함수
+  - 클래스 변수를 엑세스 할 필요가 있을 때
+  
+```python
+class User:
+    count = 0
+    
+    # instance method
+    def __init__(self, name):
+        self.name = name
+        User.count += 1
+    
+    @classmethod
+    def count_user(cls):
+        print(cls.count)
+```
+
 ### 정적 메소드(staticmethod)
 - 정적메소드를 사용하는 경우
   - self인자를 사용하지 않는 클래스 함수
@@ -8,6 +27,7 @@
     
 ```python
 class Test:
+    # instance method
     def delete(self, request):
         state = self.__insert_data()
         if state == "fail":
