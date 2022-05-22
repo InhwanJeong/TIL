@@ -64,3 +64,11 @@ app.get('/about/directions', (req,res) => {
     // 콘텐츠
 })
 ```
+
+## 3. 모범 사례
+
+### 파일과 디렉토리 구조
+- 프로젝트 경로의 파일 숫자는 가급적 줄이는 편이 좋다.
+    - 설정파일(package.json)
+    - readme.md
+    - 디렉토리
