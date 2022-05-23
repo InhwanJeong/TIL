@@ -28,3 +28,8 @@ start_time = time.time()
 end_time = time.time()
 print("time: ", end_time-start_time)
 ~~~
+
+## 자료형
+- 집합
+  - 중복을 허락하지 않는다.
+  - 순서가 없다.
