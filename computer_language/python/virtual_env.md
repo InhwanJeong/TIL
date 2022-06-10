@@ -46,7 +46,7 @@ pip freeze > requirements.txt
 ```
 
 
-### mac, linux 터미널 이용
+### linux 터미널 이용
 ```bash
 # 가상환경 생성
 python3 -m venv venv
@@ -68,4 +68,31 @@ pip freeze > requirements.txt
 ## requirements.txt 파일 생성
 ```bash
 pip freeze > requirements.txt
+```
+
+## pyenv for mac
+- https://github.com/pyenv/pyenv-virtualenv
+
+```bash
+brew install pyenv
+
+pyenv install -list
+pyenv install 3.7-dev
+pyenv install 3.10-dev
+
+pyenv version
+pyenv versions # 설치되어 있는 모든 버전 확인
+
+pyenv uninstall 3.7-dev
+pyenv global 3.10-dev
+
+
+
+brew install pyenv-virtualenv
+
+pyenv virtualenv {파이썬 버전} {가상환경 이름}
+pyenv virtualenvs # 만들어진 가상환경 리스팅
+
+pyenv activate {가상환경 이름}
+pyenv uninstall {가상환경 이름}
 ```
