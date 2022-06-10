@@ -94,5 +94,7 @@ pyenv virtualenv {파이썬 버전} {가상환경 이름}
 pyenv virtualenvs # 만들어진 가상환경 리스팅
 
 pyenv activate {가상환경 이름}
+pyenv deactivate {가상환경 이름}
+
 pyenv uninstall {가상환경 이름}
 ```
