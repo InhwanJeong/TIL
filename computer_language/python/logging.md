@@ -18,8 +18,9 @@
     - logging.critical()
 
 ### 1. logging HowTO
-- main외 다른 파일에서는 로깅을 정의할 필요 없음
+
 #### 여러 파일에서 로깅
+- main외 다른 파일에서는 로깅을 정의할 필요 없음
 ```python
 # myapp.py
 import logging
@@ -169,4 +170,47 @@ logger.critical('OMG!!! A critical error happend and the code cannot run!')
 # 2021-02-15 15:04:25,349 | WARNING | 23: Something unexpected but not important happend.
 # 2021-02-15 15:04:25,349 | ERROR | 24: Something unexpected and important happened.
 # 2021-02-15 15:04:25,350 | CRITICAL | 25: OMG!!! A critical error happend and the code cannot run!
+```
+
+#### (3) logging.yaml 파일
+```yaml
+version: 1
+disable_existing_loggers: false
+formatters:
+  time_level_message:
+    format: '%(asctime)s | %(levelname)s: %(message)s'
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: INFO
+    formatter: time_level_message
+    stream: ext://sys.stdout
+  file_error:
+    class: logging.FileHandler
+    level: ERROR
+    formatter: time_level_message
+    filename: error.log
+loggers:
+  console_logger:
+    level: INFO
+    handlers: [console]
+    propagate: false
+  file_error_logger:
+    level: ERROR
+    handlers: [file_error]
+    propagate: false
+```
+- yaml 파일 사용
+
+```python
+import logging.config
+import yaml
+
+with open('./logging.yaml', 'r') as stream:
+    config = yaml.load(stream, Loader=yaml.FullLoader)
+
+logging.config.dictConfig(config)
+logger = logging.getLogger('console_logger')
+
+logger.info("logger info print")
 ```
