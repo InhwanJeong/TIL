@@ -43,3 +43,11 @@ VALUES(
 	(SELECT COUNT(*) FROM orders)
 );
 ```
+
+## 성능개선
+- multi values
+    - insert 되어야 할 데이터가 많을수록 속도가 엄청 빨라진다. 
+```
+INSERT INTO stats(test)
+VALUES(1), (2), (3) ...;
+```
