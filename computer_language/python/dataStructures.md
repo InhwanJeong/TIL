@@ -42,6 +42,9 @@ fruits.count('apple') # 2
 
 # banana를 4 위치(kiwi부터 시작) 이후에 나오는 첫번째 바나나 index를 반환
 fruits.index('banana', 4)  # 6
+
+# orange apple pear banana kiwi apple banana
+print(" ".join(fruits))
 ```
 
 ## list comprehensions
@@ -56,3 +59,8 @@ print(squares) # [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 # set
 
 # dictionary
+- 별 표현식(star expression)
+```python
+a, b, *c = (0, 1, 2, 3, 4, 5) # a, b, *c = [0, 1, 2, 3, 4, 5]
+print(c) #[2, 3, 4, 5]
+```
