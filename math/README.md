@@ -1,0 +1,50 @@
+수학은 수, 식, 도형의 조합으로 만들어진 학문
+## 수학
+- 대수학(algebra) - 대수: 수를 대신한다, 문자를 수 대신 사용, 식을 만들고 연산, 알콰리즈미
+  - 추상대수학(abstract algebra)
+    - 군론(갈루아 - 5차 방정식의 근의 공식이 존재하지 않음을 '군'이라는 새로운 구조로 설명) - group
+    - 환론(ring)
+    - 체론(field theory)
+  - 선형대수학(linear algebra)
+    - 벡터(vector)
+    - 행렬(matrix)
+  - 정수론(number of theory)
+- 기하학(geometry)
+  - 유클리드 기하학 - 유클리드 원론
+  - 비유클리드 기하학
+    - 쌍곡기하학(hyperbolic geometry) - 말안장(볼리아이, 로바체프스키)
+    - 타원기하학(elliptic geometry) - 리만
+  - 위상수학(topology) - 고무판 기하학
+    - 도형을 자르지 않고 고무판처럼 늘이거나 줄여서 포개어지면 합동(도넛;토르소와 커피잔은 합동)
+  - 미분기하학(differential geometry) - 일반 상대성이론(뉴턴)
+- 해석학(analysis) 
+  - 미적분학(calculus)
+  - 실해석학(real analysis) - 실수체계
+  - 복소해석학(complex analysis) - 복소수체계
+  - 함수해석학(function analysis) - 백터공간 연산자
+  - 조화해석학(harmonic analysis) - 신호와 파동의 조화(푸리에)
+  - 수치해석학(numerical analysis) - 효율적인 근사값
+  - 미분방정식(differential equations)
+
+- 확률과 통계
+  - 확률론(probability theory)
+  - 통계학(statistics)
+  - 게임이론(game theory)
+  - 결정이론()
+- 이산수학(discrete math)
+  - 계산이론(theory of computation)
+  - 암호학(cryptology)
+  - 조합론(combinatorics)
+  - 그래프 이론(graph theory)
+- 수학 기초론(foundations of mathematics)
+  - 집합론(set theory)
+    - -카테고리 이론(범주론)
+  - 수리논리학(mathematical logic)
+    - 패러독스
+    - 불완전성 논리
+  - 수학사(history of math)
+    - 이집트, 메소포타미어
+    - 그리스 헬레니즘
+    - 근대 수학
+      - 
+    - 현대수학(미국)
