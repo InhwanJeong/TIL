@@ -128,3 +128,26 @@ kubectl exec $POD_NAME -- env
 # 파드 bash 접속
 kubectl exec -ti $POD_NAME -- bash
 ```
+
+### 앱 외부로 노출(Expose your app publicly)
+
+```markdown
+# 클러스터의 서비스 확인(이름, 타입, ip, port, 실행시간 등)
+kubectl get services
+
+#
+kubectl expose deployment/kubernetes-bootcamp --type="NodePort" --port 8080 service/kubernetes-bootcamp exposed
+
+# 클러스터 확인 시 추가 된것을 확인할 수 있음
+kubectl get services
+kubectl describe services/kubernetes-bootcamp
+
+# 노드 포트번호를 가져와 환경변수에 적용(내부 포트 번호) 
+export NODE_PORT=$(kubectl get services/kubernetes-bootcamp -o go-template='{{(index .spec.ports 0).nodePort}}')
+
+# 노드 포트 환경포트 확인
+echo NODE_PORT=$NODE_PORT
+
+# ip와 포트번호로 접속해보기
+curl $(minikube ip):$NODE_PORT
+```
