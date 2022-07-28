@@ -107,3 +107,19 @@ if __name__ == '__main__':
     my.main_function_3()
 
 ```
+
+## 분위수, 백분위수(percentile)
+- 분위수: 자료의 크기순서에 따른 위치값
+- 분위수를 사용하는 예시
+    - 자료의 형태가 정규분포를 벗어나는 경우가 많을 때
+    - 산포가 매우 큰 경우
+    - 상하위 부분에서 극단적인 치우침이 있어서 극단값이 중요한 의미를 지니는 경우
+  
+- 분위수를 구하는방법
+    - 내장모듈 statistics의 quantiles함수 사용
+        - statistics.quantiles(data, n=10, method='inclusive')
+    - numpy.quantiles()
+    
+- 백분위수: 크기가 있는 값들을 순서대로 나열했을 때 백분율로 나타낸 특정 위치값
+- 백분위수 구하기
+    - numpy.percentile(data, 90)
