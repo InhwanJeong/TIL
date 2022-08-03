@@ -48,6 +48,15 @@
 ### 8. 단위(Units), 접두어(prefixes), 공학적 표기법(engineering notation)
 
 ### 9. 기본 대수(basic algebra)
+- 대수방적식
+  - y = ax + b
+- 기본연산
+  - a + a + a + a = 4a
+  - 5b = 5 x b
+  - 2a + 3b + a - 2b = 3a + b
+  - 4abcd = 4 x a x b x c x d
+  - ab = ba
+  - b제곱 = b x b
 
 ### 10. 대수 더 알아보기(further algebra)
 
