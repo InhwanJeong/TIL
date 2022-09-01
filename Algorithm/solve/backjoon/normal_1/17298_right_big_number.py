@@ -3,25 +3,28 @@ import sys
 if __name__ == '__main__':
     n = int(sys.stdin.readline().replace("\n", ""))
 
+    result = [-1] * n
     num_list = list(map(int, sys.stdin.readline().split()))
-    result = [-1 for _ in range(n)]
-    stack = []
+    wait_stack = []
 
-    for i in range(n-1):
-        if num_list[i] < num_list[i+1]:
-            result[i] = num_list[i+1]
+    pre_value = 0
+    for i, value in enumerate(num_list):
+        if i == 0:
+            pre_value = value
+            wait_stack.append([value, i])
+            continue
+
+        if pre_value < value:
+           result[i - 1] = value
         else:
-            stack.append(i)
-        while stack:
-            if num_list[stack[-1]] < num_list[i + 1]:
-                break
-            else:
-                result[stack.pop()] = num_list[i + 1]
-    print(result)
-"""
-4
-3 5 2 7
+            wait_stack.append([pre_value, i-1])
 
-4
-9 5 4 8
-"""
+        while wait_stack:
+            if wait_stack[-1][0] >= value:
+                break
+            _, i = wait_stack.pop()
+            result[i] = value
+
+        pre_value = value
+
+    print(' '.join(map(str, result)))
