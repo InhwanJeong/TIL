@@ -31,3 +31,22 @@
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_291.jdk/Contents/Home
 export PATH=${PATH}:$JAVA_HOME/bin:
 ```
+
+## 2. 텍스트 전처리
+- 토큰화(Tokenization): 의미 있는 단위로 말뭉치를 나눠주는 것
+  - 영어 토큰화
+    - 단어 토큰화
+    - 문장 토큰화
+  - 한국어 토큰화(교착어)
+    - 형태소 토큰화
+    - 품사 태깅
+    - 명사 추출
+- 정제(Cleaning)
+  - 어간 및 표제어 추출(코퍼스를 줄임)
+  - 불용어 제거(잘 안쓰는것, 목적에 맞지 않는 것)
+  - 정규표현식을 이용한 제거
+- 정규화(Normalization)
+  - 정수 인코딩(integer encoding)
+  - 패딩(padding)
+  - 원-핫 인코딩(one-hot encoding)
+    - 정수 인코딩 후 원-핫 벡터로 만들어주는 인코딩
