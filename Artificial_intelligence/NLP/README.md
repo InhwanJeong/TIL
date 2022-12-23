@@ -1,4 +1,9 @@
 # 자연어 처리(Natural language processing)
+- 자연어 처리 과정
+  - 자연어 입력
+  - 특정 범주일 확률을 추출(0~1)
+  - 후처리를 통해 자연어 형태로 가공
+
 
 ## 1. 환경 준비하기
 - [아나콘다 설치링크](https://www.anaconda.com/distribution/)
